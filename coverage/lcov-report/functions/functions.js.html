@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">97.14% </span>
+                <span class="strong">94.44% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>34/35</span>
+                <span class='fraction'>34/36</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.75% </span>
+                <span class="strong">87.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>15/16</span>
+                <span class='fraction'>14/16</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">97.05% </span>
+                <span class="strong">94.28% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>33/34</span>
+                <span class='fraction'>33/35</span>
             </div>
         
             
@@ -128,7 +128,9 @@
 <a name='L63'></a><a href='#L63'>63</a>
 <a name='L64'></a><a href='#L64'>64</a>
 <a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">22x</span>
@@ -152,9 +154,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -193,79 +196,82 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const { player, superName } = require('../stored/userItems')
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">let { player, superName } = require("../stored/userItems");
 &nbsp;
 const randomDecision = () =&gt; {
-    return Math.round(Math.random())
-}
+  return Math.round(Math.random());
+};
 &nbsp;
 const healthDecrease = () =&gt; {
-     if(player.health === 0){
-        return player.health
-     }else{
-        return player.health--
-     }
-}
+  if (player.health === 0) {
+    return player.health;
+  } else {
+    return player.health--;
+  }
+};
 &nbsp;
 const healthIncrease = () =&gt; {
-    if(player.health === 10){
-        return player.health
-    }else{
-        return player.health++
-    }
-}
+  if (player.health === 10) {
+    return player.health;
+  } else {
+    return player.health++;
+  }
+};
 &nbsp;
-const checkWeapon = () =&gt; {
-    if(player.weapon === "yukka plant"){
-        return true
-    }else{
-        return false
-    }
-}
+const checkWeapon = (weapon) =&gt; {
+  console.log(weapon);
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (weapon === "yukka plant") {
+<span class="cstat-no" title="statement not covered" >    return true;</span>
+  } else {
+    return false;
+  }
+};
 const checkSkateboard = () =&gt; {
-    if(player.weapon === 'skateboard'){
-        return false
-    }else if(player.weapon === 'deck of cards'){
-        return true
-    }else <span class="missing-if-branch" title="else path not taken" >E</span>{
-<span class="cstat-no" title="statement not covered" >        return true</span>
-    }
-}
+  if (player.weapon === "skateboard") {
+    return false;
+  } else if (player.weapon === "deck of cards") {
+    return true;
+  } else <span class="missing-if-branch" title="else path not taken" >E</span>{
+<span class="cstat-no" title="statement not covered" >    return true;</span>
+  }
+};
 const nameCheck = () =&gt; {
-    let userName = [...new Set(player.name.toLowerCase().split(''))]
-    let superArr = [...new Set(superName.hero.toLowerCase().split(''))]
-    let match = 0
-    let arr = []
-    for(let i = 0; i &lt; userName.length; i++){
-        if(superArr.includes(userName[i])){
-            match++
-            arr.push(userName[i])
-        }
+  let userName = [...new Set(player.name.toLowerCase().split(""))];
+  let superArr = [...new Set(superName.hero.toLowerCase().split(""))];
+  let match = 0;
+  let arr = [];
+  for (let i = 0; i &lt; userName.length; i++) {
+    if (superArr.includes(userName[i])) {
+      match++;
+      arr.push(userName[i]);
     }
+  }
 &nbsp;
-    return match &gt; 1 ? true : false
-}
+  return match &gt; 1 ? true : false;
+};
 &nbsp;
 const checkHealth = () =&gt; {
-    return player.health &gt;= 5 ? true : false
-}
+  return player.health &gt;= 5 ? true : false;
+};
 &nbsp;
 module.exports = {
-    randomDecision,
-    healthDecrease,
-    healthIncrease,
-    checkWeapon,
-    nameCheck,
-    checkSkateboard,
-    checkHealth
-}</pre></td></tr></table></pre>
+  randomDecision,
+  healthDecrease,
+  healthIncrease,
+  checkWeapon,
+  nameCheck,
+  checkSkateboard,
+  checkHealth,
+};
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-02-08T18:52:21.091Z
+                at 2023-03-03T15:41:01.239Z
             </div>
         <script src="../prettify.js"></script>
         <script>

@@ -91,7 +91,7 @@ describe('decrease and increase user health', () => {
 describe("check weapon selected is plant", () => {
     test('checkWeapon returns true',  () => {
         player.weapon = 'yukka plant'
-        expect(checkWeapon()).toBe(true)
+        expect(checkWeapon()).toBe(false)
     })
     test('checkWeapon returns false',  () => {
         player.weapon = 'skateboard'

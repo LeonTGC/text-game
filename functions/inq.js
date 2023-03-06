@@ -2,7 +2,6 @@ const inquirer = require('inquirer')
 
 
 const name = async () => {
-    //res 
     const { userInput } = await inquirer.prompt({
         type: 'input',
         name: 'userInput',
@@ -14,6 +13,8 @@ const name = async () => {
         return userInput
     }
 }
+
+
 const selectWeapon = async (weapons) => {
     const { weaponChoice } = await inquirer.prompt({
         type: 'list',
